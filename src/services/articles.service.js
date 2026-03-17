@@ -14,8 +14,8 @@ async function getArticles({ page, limit, offset, category }) {
     }
 
     const [articles, total] = await Promise.all([
-        Article.findAll({ limit, offset, category }),
-        Article.countAll({ category })
+        Article.findAll(limit, offset, category),
+        Article.countAll(category)
     ]);
 
     try {
