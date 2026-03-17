@@ -3,6 +3,6 @@ const fetchController = require('../controllers/fetch.controller');
 
 const router = express.Router();
 
-router.post('/', fetchController.fetchFromSources());
+router.post('/', fetchController.fetchFromSources);
 
 module.exports = router;
