@@ -7,7 +7,7 @@ const errorHandler = require('./api/middleware/errorHandler');
 const sourceRoutes = require('./api/routes/sources');
 const healthRoutes = require('./api/routes/health');
 const articleRoutes = require('./api/routes/articles');
-const articleRoutes = require('./api/routes/fetch');
+const fetchRoutes = require('./api/routes/fetch');
 
 const app = express();
 
