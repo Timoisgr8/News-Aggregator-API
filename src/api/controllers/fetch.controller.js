@@ -1,11 +1,15 @@
 const fetcher = require('../../services/fetcher.service')
 
 async function fetchFromSources(req, res, next) {
-    count = await fetcher.fetchFromSources()
+    try {
+        const count = await fetcher.fetchFromSources();
 
-    return res.status(200).json({
-        message: `Fetched ${count} articles.`
-    });
+        return res.status(200).json({
+            message: `Fetched ${count} articles.`
+        });
+    } catch (err) {
+        next(err);
+    }
 }
 
 module.exports = { fetchFromSources }
