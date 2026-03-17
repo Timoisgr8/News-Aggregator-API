@@ -2,12 +2,8 @@ const redis = require('redis');
 const config = require('../config');
 const logger = require('../utils/logger');
 
-const client = redis.createClient({ 
-    url: config.redis.url,
-    socket: {
-        tls: config.app.env === 'production',
-        rejectUnauthorized: false
-    }
+const client = redis.createClient({
+    url: config.redis.url
 });
 
 if (process.env.NODE_ENV !== 'test') {
