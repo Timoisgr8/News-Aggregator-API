@@ -17,7 +17,13 @@ async function getArticles({ page, limit, offset, category }) {
         Article.findAll({ limit, offset, category }),
         Article.countAll({ category })
     ]);
-    await cache.set(cacheKey, { articles, total });
+
+    try {
+        await cache.set(cacheKey, { articles, total });
+    } catch (err) {
+        logger.warn('Cache set failed', { error: err.message });
+    }
+
     return { articles, total };
 }
 
@@ -34,7 +40,11 @@ async function getArticleById(id) {
 
     const article = await Article.findById(id);
     if (article) {
-        await cache.set(cacheKey, article);
+        try {
+            await cache.set(cacheKey, article);
+        } catch (err) {
+            logger.warn('Cache set failed', { error: err.message });
+        }
     }
     return article;
 }
