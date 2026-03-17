@@ -3,11 +3,7 @@ const config = require('../config/index')
 const logger = require('../utils/logger')
 
 const pool = new Pool({
-    host: config.db.host,
-    port: config.db.port,
-    database: config.db.name,
-    user: config.db.user,
-    password: config.db.password,
+    connectionString: process.env.DATABASE_URL || `postgresql://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`,
     max: 10,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 2000,
