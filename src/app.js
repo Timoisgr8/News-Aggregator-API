@@ -7,6 +7,7 @@ const errorHandler = require('./api/middleware/errorHandler');
 const sourceRoutes = require('./api/routes/sources');
 const healthRoutes = require('./api/routes/health');
 const articleRoutes = require('./api/routes/articles');
+const articleRoutes = require('./api/routes/fetch');
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(requestLogger);
 app.use('/health', healthRoutes);
 app.use('/articles', articleRoutes);
 app.use('/sources', sourceRoutes);
+app.use('/fetch', fetchRoutes);
+
 
 // Error 404 
 app.use((req, res) => {
