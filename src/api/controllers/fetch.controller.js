@@ -1,4 +1,5 @@
 const fetcher = require('../../services/fetcher.service')
+const logger = require('../../utils/logger')
 
 async function fetchFromSources(req, res, next) {
     try {
