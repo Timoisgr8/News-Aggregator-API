@@ -10,7 +10,7 @@ const validateQuery = (req, res, next) => {
         return res.status(400).json({ error: { message: 'limit must be between 1 and 100', status: 400 } });
     }
 
-    req.pagination = { page, limit, offset: (page - 1) * limit };
+    req.pagination = { page, limit, offset: parseInt((page - 1) * limit) };
     req.filters = { category: category || null };
 
     next();

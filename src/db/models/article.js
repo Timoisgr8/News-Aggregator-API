@@ -7,7 +7,7 @@ async function findById(id) {
 }
 
 async function findAll(limit, offset, category) {
-    const params = [limit, offset];
+    const params = [parseInt(limit), parseInt(offset)];
     let whereClause = '';
 
     if (category !== null) {
