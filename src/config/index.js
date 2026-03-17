@@ -29,4 +29,7 @@ if (!config.newsapi.key && config.app.env !== 'test') {
   console.warn('WARNING: NEWSAPI_KEY is not set');
 }
 
+console.log('NEWSAPI_KEY exists:', !!process.env.NEWSAPI_KEY);
+
+
 module.exports = config;
